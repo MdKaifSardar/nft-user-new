@@ -23,7 +23,7 @@ const SecondSection: React.FC = () => {
                 Multi-Reward
               </h3>
               <p className="text-gray-700">
-                TreasureNFT leverages a proprietary AI-powered algorithmic
+              JEONFT leverages a proprietary AI-powered algorithmic
                 trading model, and provides a dual earnings mechanism with
                 trading rewards as well as referral rewards.
               </p>
@@ -38,7 +38,7 @@ const SecondSection: React.FC = () => {
                 Earn Future Value
               </h3>
               <p className="text-gray-700">
-                TreasureNFT reduces transaction costs and increases trading
+              JEONFT reduces transaction costs and increases trading
                 efficiency, ensuring better returns for users in the long run.
               </p>
             </div>

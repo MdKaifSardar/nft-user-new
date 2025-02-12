@@ -22,7 +22,7 @@ const NftShowcase: React.FC = () => {
           RESERVE AND SELL YOUR NFT EASILY
         </h2>
         <p className="text-gray-600 mt-3">
-          Earning income in TreasureNFT is simple: just RESERVE and then TRADE
+          Earning income in JEONFT is simple: just RESERVE and then TRADE
           to EARN
         </p>
         <button className="mt-5 bg-gradient-to-r from-blue-400 to-pink-300 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-md transition-transform hover:scale-105">

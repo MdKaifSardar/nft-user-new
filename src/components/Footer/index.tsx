@@ -9,11 +9,11 @@ const Footer = () => {
         {/* Logo and description */}
         <div>
           <div className="flex items-center space-x-2">
-            <Image src={Logo} alt="Treasure NFT" width={40} height={40} />
+            <Image src={Logo} alt="JEONFT" width={40} height={40} />
             <h2 className="text-xl font-bold">JEONFT</h2>
           </div>
           <p className="text-gray-600 mt-2">
-            TreasureNFT is a Web3 revenue platform based on NFT collections.
+            JEONFT is a Web3 revenue platform based on NFT collections.
           </p>
         </div>
 
@@ -96,7 +96,7 @@ const Footer = () => {
 
       {/* Copyright Section */}
       <div className="text-center text-gray-500 text-sm mt-8">
-        © 2023 - TreasureMeta Technology, Inc <br />
+        © 2023 - JEOMETA Technology, Inc <br />
         <a href="#" className="hover:underline">
           Privacy Policy
         </a>{" "}
