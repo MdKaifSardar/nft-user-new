@@ -4,10 +4,11 @@ import NftShowImages from "@/utils/NftShow";
 
 const NftShowcase: React.FC = () => {
   return (
-    <section className="flex flex-col h-[90vh] md:flex-row items-center justify-between p-8">
+    <section className="flex flex-col md:flex-row items-center justify-between p-8 h-screen max-w-7xl mx-auto">
       {/* NFT Cards */}
-      <div className="relative flex flex-row justify-center items-center w-1/2">
-        <div className="absolute right-[55%] scale-75 opacity-75">
+      <div className="relative flex justify-center items-center w-full md:w-1/2 min-h-[300px] md:min-h-[500px]">
+        {/* Background Images */}
+        <div className="absolute left-[50%] top-[10%] -translate-x-[50%] md:right-[55%] md:top-[15%] scale-75 md:scale-90 opacity-75">
           <Image
             src={NftShowImages[0].image}
             alt="NFT 1"
@@ -16,16 +17,18 @@ const NftShowcase: React.FC = () => {
             className="rounded-xl shadow-lg"
           />
         </div>
-        <div className="z-10">
+
+        <div className="relative z-10">
           <Image
             src={NftShowImages[1].image}
             alt="NFT 2"
             width={280}
             height={280}
-            className="rounded-xl w-shadow-xl"
+            className="rounded-xl shadow-xl"
           />
         </div>
-        <div className="absolute left-[55%] bottom-[-20%] scale-85 opacity-75">
+
+        <div className="absolute left-[50%] bottom-[10%] -translate-x-[50%] md:left-[55%] md:bottom-[-20%] scale-75 md:scale-90 opacity-75">
           <Image
             src={NftShowImages[2].image}
             alt="NFT 3"
@@ -37,7 +40,7 @@ const NftShowcase: React.FC = () => {
       </div>
 
       {/* Text Section */}
-      <div className="mt-8 md:mt-0 md:w-1/2 text-center md:text-left">
+      <div className="mt-8 md:mt-0 w-full md:w-1/2 text-center md:text-left">
         <h2 className="text-2xl md:text-3xl font-bold text-black">
           RESERVE AND SELL YOUR NFT EASILY
         </h2>
