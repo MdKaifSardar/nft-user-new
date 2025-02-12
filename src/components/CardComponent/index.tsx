@@ -1,11 +1,9 @@
-import cards from "@/utils/nftCard";
 import React from "react";
 import { FaHeart, FaComment } from "react-icons/fa";
 import Image from "next/image";
-import { StaticImageData } from "next/image";
 
 interface CardProps {
-  image: string | StaticImageData;
+  image: string;
   title: string;
   text: string;
   likes: number;
@@ -14,14 +12,16 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ image, title, text, likes, comments }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-5 w-72">
-      <Image
-        src={image}
-        alt={title}
-        className="w-full h-48 object-cover rounded-lg"
-        width={500}
-        height={300}
-      />
+    <div className="bg-white rounded-2xl shadow-lg p-5 w-80 transition-transform hover:scale-105">
+      <div className="relative w-full h-48">
+        <Image
+          src={image}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
       <h3 className="text-lg font-bold mt-4">{title}</h3>
       <p className="text-gray-600 mt-2">{text}</p>
 
@@ -40,14 +40,4 @@ const Card: React.FC<CardProps> = ({ image, title, text, likes, comments }) => {
   );
 };
 
-const CardList: React.FC = () => {
-  return (
-    <div className="flex justify-center gap-6 flex-wrap p-6 bg-gray-100 min-h-screen">
-      {cards.map((card, index) => (
-        <Card key={index} {...card} />
-      ))}
-    </div>
-  );
-};
-
-export default CardList;
+export default Card;
