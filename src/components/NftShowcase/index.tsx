@@ -1,46 +1,23 @@
+import { BigNftImage } from "@/utils/NftShow";
 import React from "react";
 import Image from "next/image";
-import NftShowImages from "@/utils/NftShow";
 
 const NftShowcase: React.FC = () => {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between p-8 h-screen max-w-7xl mx-auto">
-      {/* NFT Cards */}
-      <div className="relative flex justify-center items-center w-full md:w-1/2 min-h-[300px] md:min-h-[500px]">
-        {/* Background Images */}
-        <div className="absolute left-[50%] top-[10%] -translate-x-[50%] md:right-[55%] md:top-[15%] scale-75 md:scale-90 opacity-75">
-          <Image
-            src={NftShowImages[0].image}
-            alt="NFT 1"
-            width={200}
-            height={200}
-            className="rounded-xl shadow-lg"
-          />
-        </div>
-
-        <div className="relative z-10">
-          <Image
-            src={NftShowImages[1].image}
-            alt="NFT 2"
-            width={280}
-            height={280}
-            className="rounded-xl shadow-xl"
-          />
-        </div>
-
-        <div className="absolute left-[50%] bottom-[10%] -translate-x-[50%] md:left-[55%] md:bottom-[-20%] scale-75 md:scale-90 opacity-75">
-          <Image
-            src={NftShowImages[2].image}
-            alt="NFT 3"
-            width={200}
-            height={200}
-            className="rounded-xl shadow-lg"
-          />
-        </div>
+    <section className="flex flex-col md:flex-row items-center justify-center md:justify-between p-8 h-screen w-full mx-auto">
+      {/* NFT Image */}
+      <div className="relative flex justify-center items-center w-full md:w-1/2 h-fit">
+        <Image
+          src={BigNftImage}
+          alt="NFT Showcase"
+          width={400}
+          height={400}
+          className=" w-full h-auto"
+        />
       </div>
 
       {/* Text Section */}
-      <div className="mt-8 md:mt-0 w-full md:w-1/2 text-center md:text-left">
+      <div className="mt-8 md:mt-0 w-full md:w-1/2 text-center md:text-right">
         <h2 className="text-2xl md:text-3xl font-bold text-black">
           RESERVE AND SELL YOUR NFT EASILY
         </h2>

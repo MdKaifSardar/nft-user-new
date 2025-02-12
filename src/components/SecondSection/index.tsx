@@ -3,7 +3,7 @@ import { FaChartBar, FaChartPie } from "react-icons/fa";
 
 const SecondSection: React.FC = () => {
   return (
-    <section className="bg-gradient-to-br from-[#ebebeb] via-[#dbfffc] to-[#ffebf6] min-h-screen flex items-center justify-center px-6">
+    <section className="w-full bg-gradient-to-br from-[#ebebeb] via-[#dbfffc] to-[#ffebf6] min-h-screen flex items-center justify-center px-6">
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Text Section */}
         <div className="max-w-lg text-center md:text-left">

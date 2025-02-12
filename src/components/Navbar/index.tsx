@@ -1,23 +1,40 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation"; // Import Next.js router
 import { FaBell, FaShareAlt, FaGlobe, FaBars } from "react-icons/fa";
-import { navbarItems, dropdownItems } from "../../utils/Navbar";
+import { navbarItems, dropdownItems, LogoNavbar } from "../../utils/Navbar";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const router = useRouter(); // Initialize router
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const handleAccountClick = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.push("/dashboard"); // Redirect to dashboard if token exists
+    } else {
+      router.push("/login"); // Redirect to login if no token
+    }
   };
 
   return (
-    <nav className="w-full z-[100] sticky top-0 text-black shadow-md">
-      <div className="container mx-auto flex justify-between items-center p-4">
+    <nav className="w-full z-[100] sticky top-0 bg-white shadow-md">
+      <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Left Side: Logo & Nav Items */}
         <div className="flex items-center space-x-6">
-          <img src="/logo.png" alt="Website Logo" className="h-10" />
-          <div className="hidden md:flex space-x-6">
+          {/* Logo */}
+          <Image
+            src={LogoNavbar}
+            alt="Website Logo"
+            className="w-[7rem] h-auto object-contain"
+            width={120}
+            height={40}
+          />
+
+          {/* Desktop & Mobile Nav Links */}
+          <div className="hidden lg:flex space-x-6">
             {navbarItems.map((item, index) => (
               <a
                 key={index}
@@ -35,32 +52,39 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="hidden md:block border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
-          <FaBell className="text-gray-600 hover:text-blue-600 cursor-pointer text-lg" />
-          <FaShareAlt className="text-gray-600 hover:text-blue-600 cursor-pointer text-lg" />
-          <FaGlobe className="text-gray-600 hover:text-blue-600 cursor-pointer text-lg" />
-          <FaBars
-            onClick={toggleDropdown}
-            className="cursor-pointer text-lg md:hidden"
-          />
+          <FaBell className="text-gray-600 hover:text-blue-600 cursor-pointer w-6 h-6 sm:w-5 sm:h-5" />
+          <FaShareAlt className="text-gray-600 hover:text-blue-600 cursor-pointer w-6 h-6 sm:w-5 sm:h-5" />
+          <FaGlobe className="text-gray-600 hover:text-blue-600 cursor-pointer w-6 h-6 sm:w-5 sm:h-5" />
+
+          {/* Dropdown Menu */}
+          <div className="relative">
+            <FaBars
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="cursor-pointer w-6 h-6 sm:w-5 sm:h-5"
+            />
+
+            {/* Dropdown */}
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg p-3 z-50">
+                {dropdownItems.map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.name === "Account" ? "#" : item.link} // Prevent default for Account
+                    onClick={
+                      item.name === "Account" ? handleAccountClick : undefined
+                    }
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded transition"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-
-      {/* Dropdown for Mobile Menu */}
-      {dropdownOpen && (
-        <div className="absolute right-4 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden transition-all duration-300 ease-in-out md:hidden">
-          {dropdownItems.map((item, index) => (
-            <a
-              key={index}
-              href={item.link}
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
-      )}
     </nav>
   );
 };

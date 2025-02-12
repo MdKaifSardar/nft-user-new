@@ -10,7 +10,7 @@ import NftGallery from "@/components/NftGallery";
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="flex flex-col justify-center items-center w-full">
       {/* <HeroImage/> */}
       <SecondSection />
       {/* <CardList /> */}
