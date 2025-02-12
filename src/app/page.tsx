@@ -3,7 +3,7 @@
 // import Navbar from "@/components/Navbar";
 
 import FeaturedNFT from "@/components/FeaturedNFT";
-import CardList from "@/components/CardList";
+// import CardList from "@/components/CardList";
 import SecondSection from "@/components/SecondSection";
 import NftShowcase from "@/components/NftShowcase";
 import NftGallery from "@/components/NftGallery";
